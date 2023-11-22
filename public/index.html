@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/styles.css" />
+    <title>Pokedex</title>
+  </head>
+  <body>    
+    <h1>Mi Pokedex Personal impulsada por Node</h1>
+    <div class="tab-container">
+      <div class="tab btn-form active" onclick="changeTab(1)">PokeCreador</div>
+      <div class="tab btn-form" id="pokeListbt" onclick="changeTab(2)">Pokedex</div>
+    </div>
+    <div class="tab-content active" id="tabContent1">
+      <form id="pokemonForm" class="formPokemon" action="/pokemons" enctype="multipart/form-data" method="post">
+        <h2> Crea tu Propio Pokemon </h2>     
+         <div class="form-style">
+         <label  for="nombre">Nombre:</label>
+         <input class="input-style" type="text" id="nombre" name="nombre" required />
+       </div>
+         <div>
+         <label for="tipo">Tipo:</label>
+         <select id="tipo" name="tipo" required>
+           <option value="normal">Normal</option>
+           <option value="fire">Fuego</option>
+           <option value="water">Agua</option>
+           <option value="electric">Eléctrico</option>
+           <option value="grass">Planta</option>
+           <option value="ice">Hielo</option>
+           <option value="fighting">Lucha</option>
+           <option value="poison">Veneno</option>
+           <option value="ground">Tierra</option>
+           <option value="flying">Volador</option>
+           <option value="psychic">Psíquico</option>
+           <option value="bug">Bicho</option>
+           <option value="rock">Roca</option>
+           <option value="ghost">Fantasma</option>
+           <option value="dragon">Dragón</option>
+           <option value="dark">Siniestro</option>
+           <option value="steel">Acero</option>
+           <option value="fairy">Hada</option>
+         </select>
+       </div>
+       <div class="form-style">
+         <label  for="pokeInfo">PokeInfo:</label>
+         <textarea class="input-style" id="pokeInfo" name="pokeInfo" required></textarea>
+       </div>
+       <div>
+         <label class="container" for="tieneEvolucion">Tiene evolución:
+         <input type="checkbox" id="tieneEvolucion" name="tieneEvolucion" value="true" />
+   
+             <div class="checkmark"></div>
+       </label>
+     </div>
+     <div class="form-style">
+         <label  for="debilidades">Debilidades (separadas por comas):</label>
+         <input class="input-style" type="text" id="debilidades" name="debilidades" required />
+       </div>
+
+       <div>
+       <input class="flex h-10 w-full rounded-md border border-input bg-white px-3 py-2 text-sm text-gray-400 file:border-0 file:bg-transparent file:text-gray-600 file:text-sm file:font-medium form-control-file" id="image" type="file" name="uploaded_file" accept=".jpg, .jpeg, .png">
+      </div>
+       <button class="btn-form" type="submit">Agregar Pokémon</button>
+       </form>
+    </div>
+    <div class="tab-content" id="tabContent2">
+      <div>        
+        <ol id="pokemonList"></ol>
+      </div>
+    </div>
+      <div id="editUpdate" class="update">
+        <div class="update-content">
+          <span class="close">&times;</span>
+          <h2>Editar Pokémon</h2>
+          <form id="editForm" class="formPokemon">
+            <label for="editName">Nombre:</label>
+            <input type="text" id="editName" name="editName" required />      
+            <label for="editType">Tipo:</label>
+            <select id="editType" name="editType" required>
+            <option value="normal">Normal</option>
+            <option value="fire">Fuego</option>
+            <option value="water">Agua</option>
+            <option value="electric">Eléctrico</option>
+            <option value="grass">Planta</option>
+            <option value="ice">Hielo</option>
+            <option value="fighting">Lucha</option>
+            <option value="poison">Veneno</option>
+            <option value="ground">Tierra</option>
+            <option value="flying">Volador</option>
+            <option value="psychic">Psíquico</option>
+            <option value="bug">Bicho</option>
+            <option value="rock">Roca</option>
+            <option value="ghost">Fantasma</option>
+            <option value="dragon">Dragón</option>
+            <option value="dark">Siniestro</option>
+            <option value="steel">Acero</option>
+            <option value="fairy">Hada</option>
+          </select>
+          <label for="editDescription">PokeInfo:</label>
+          <textarea id="editDescription" name="editDescription" required></textarea>
+          <label for="editHasEvolution" class="container">Tiene evolución:</label>
+          <input type="checkbox" id="editHasEvolution" class="checkmark" name="editHasEvolution" />
+          <label for="editWeaknesses" >Debilidades (separadas por comas):</label>
+          <input type="text" id="editWeaknesses" name="editWeaknesses" required />
+          <button type="submit" class="btn-style">Guardar cambios</button>
+        </form>
+      </div>
+    </div>
+    <script src="./js/main.js"></script>
+  </body>
+</html>
